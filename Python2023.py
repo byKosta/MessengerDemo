@@ -1,33 +1,29 @@
-# МЕССЕНДЖЕР
+#Messenger
+import time
+messages_list=[]
+message_user=""
+message_text=""
+message_time=""
+stop_word="Exit"
+def add_message(name,text,time):
+  new_message={
+      'name' : name,
+      'text' : text,
+      'time' : message_time
+  }
+  messages_list.append(new_message)
+while message_user != stop_word:
+  message_user=input("\nInput your name [or Exit for exiting]: ")
+  message_text=input("Input your message: ")
+  message_time=time.ctime()
+  add_message(message_user,message_text,message_time)
+print("\nChat history:")
+def print_messages():
+  for message in messages_list:
+    name=message["name"]
+    text=message["text"]
+    time=message["time"]
+    print(f"\nUser: {name} \nMessage: {text} \nTime: {time}")
 
-# Список всех сообщений
-messages_list = []
-
-# Функция для добавления новых сообщений (имя отправителя, текст сообщений) в список
-def add_message(name, text):
-    new_message = {
-        "name": name,
-        "text": text,
-        "time": "23:34", # ДЗ: Подставить текущее время Часы:Минуты
-    }
-    messages_list.append(new_message)
-
-add_message("Майк", "Йо, это первое сообщение")
-add_message("Витя", "А чо так можно было чтоли?")
-
-
-# Функция для чтения сообщений
-def print_messages_list():
-    # for in
-    # Для каждого сообщения в списке сообщений, сделать следующее:
-    for message in messages_list:
-        # Здесь идет код, который может сделать какие-либо действия с сообщением message
-        name = message["name"]
-        text = message["text"]
-        time = message["time"]
-        print(f"[{name}]: {text} // {time} ")
-        
-        print(messages_list)
-        
-
+print_messages()
 
